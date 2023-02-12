@@ -1,2 +1,5 @@
-package de.kozdemir.springsecuritydemo.model;public enum UserRole {
+package de.kozdemir.springsecuritydemo.model;
+
+public enum UserRole {
+    USER, ADMIN, SUPERADMIN;
 }
