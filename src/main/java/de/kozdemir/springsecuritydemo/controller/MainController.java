@@ -18,16 +18,19 @@ public class MainController {
     @GetMapping({"login","login/{sub}"})
     public String login(@PathVariable Optional<String> sub, Model model) {
         sub.ifPresent(s ->{
-            model.addAttribute("s", true);
+            model.addAttribute(s, true);
         });
         return "login";
     }
 
-//    @GetMapping("login/error")
-//    public String loginError(Model model) {
-//        model.addAttribute("error", true);
-//        return "login";
-//    }
+    /*
+    @GetMapping("login/error")
+    public String loginError(Model model) {
+        model.addAttribute("error", true);
+        return "login";
+    }
+    */
+
 
     @GetMapping("register")
     public String register(Model model) {

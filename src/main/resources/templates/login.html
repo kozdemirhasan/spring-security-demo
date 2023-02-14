@@ -11,12 +11,15 @@
 </head>
 <body>
 <header class="container"></header>
+
+<nav th:replace="fragments.html :: mainNav"></nav>
+
 <main class="container py-5">
 
     <div class="row">
         <div class="col-sm-6">
 
-            <div th:if="${error}" class="alert alert-danger">Anmeldung ungültig</div>
+            <div th:if="${error}" class="alert alert-danger">Anmeldung ungültig.</div>
 
             <form th:action="@{/login}" method="post">
                 <div class="mb-3">
@@ -31,7 +34,16 @@
             </form>
         </div>
     </div>
-
+    <div class="row my-3">
+        <div class="col">
+            <a href="/register">Registrieren</a>
+        </div>
+    </div>
+    <div class="row my-3">
+        <div class="col">
+            <a href="/forgot">Passwort vergessen</a>
+        </div>
+    </div>
 </main>
 
 <footer class="container"></footer>

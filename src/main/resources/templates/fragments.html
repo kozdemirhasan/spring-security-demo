@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://thymeleaf.org"
+                xmlns:sec="http://thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+  <head th:fragment="head(title)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[[${title}]]</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.2.3/css/bootstrap.min.css">
+  </head>
+<body>
+
+  <nav th:fragment="mainNav">
+    <div class="container">
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="/" class="nav-link">Startseite</a>
+        </li>
+
+        <li class="nav-item" sec:authorize="hasAnyRole('ADMIN')">
+          <a href="/admin" class="nav-link">Admin</a>
+        </li>
+
+        <li class="nav-item" sec:authorize="!isAuthenticated()">
+          <a href="/login" class="nav-link">Login</a>
+        </li>
+
+        <li class="nav-item" sec:authorize="isAuthenticated()">
+          <a href="/logout" class="nav-link">Logout</a>
+        </li>
+
+        <li class="nav-item" sec:authorize="!isAuthenticated()">
+          <a href="/register" class="nav-link">Registrieren</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+</body>
+</html>
