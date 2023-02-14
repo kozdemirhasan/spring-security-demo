@@ -20,6 +20,7 @@ public class SpringsecuritydemoApplication implements CommandLineRunner {
     @Autowired
     PasswordEncoder passwordEncoder;
 
+//    @Value("${db.admin.user.reset}")
     @Value("${db.admin.user.reset}")
     private boolean adminReset;
 

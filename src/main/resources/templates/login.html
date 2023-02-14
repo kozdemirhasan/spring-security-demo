@@ -1,20 +1,24 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Home</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.2.3/css/bootstrap.min.css">
+
 </head>
 <body>
-<main>
+<header class="container"></header>
+<main class="container py-5">
+
     <div class="row">
         <div class="col-sm-6">
 
             <div th:if="${error}" class="alert alert-danger">Anmeldung ungültig</div>
 
-            <form th:action="@{/login}">
+            <form th:action="@{/login}" method="post">
                 <div class="mb-3">
                     <input type="text" class="form-control" name="username" id="username" required
                            placeholder="Benutzername">
@@ -30,6 +34,8 @@
 
 </main>
 
+<footer class="container"></footer>
 
+<script src="/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

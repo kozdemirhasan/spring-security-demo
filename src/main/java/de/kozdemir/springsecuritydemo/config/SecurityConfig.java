@@ -54,16 +54,17 @@ public class SecurityConfig {
         http
                 .csrf().disable()
                 //.httpBasic()
-                .formLogin().loginPage("/login")
+                .formLogin()
+                    .loginPage("/login").failureUrl("/login/error")
                 .and()
                     .authorizeRequests()
-                        .antMatchers("/", "login/**", "/register/**", "/h2-console/**").permitAll() //Frei zugänglich
+                        .antMatchers("/", "/login/**", "/register/**", "/h2-console/**").permitAll() //Frei zugänglich
                         //.antMatchers("/admin/**").hasRole("ADMIN") //Freigabe nu mit bestimmten Rolle
                         .anyRequest().authenticated() // Alle anderen erfordern anmeldung
                 .and()
                     .logout().logoutUrl("/logout")
                         .invalidateHttpSession(true); //Session wird ungültig
-                        //.deleteCookies("JSESSIONID"); //Session- cookie wird im Bowser gelöst
+//                        .deleteCookies("JSESSIONID"); //Session- cookie wird im Bowser gelöst
 
         return http.build();
     }
