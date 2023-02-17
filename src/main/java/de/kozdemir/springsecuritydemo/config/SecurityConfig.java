@@ -66,6 +66,8 @@ public class SecurityConfig {
                         .invalidateHttpSession(true); //Session wird ungültig
 //                        .deleteCookies("JSESSIONID"); //Session- cookie wird im Bowser gelöst
 
+        http.headers().frameOptions().sameOrigin();
+
         return http.build();
     }
 
