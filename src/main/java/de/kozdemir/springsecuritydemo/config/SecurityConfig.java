@@ -4,6 +4,7 @@ package de.kozdemir.springsecuritydemo.config;
 import de.kozdemir.springsecuritydemo.service.CustomUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
@@ -17,6 +18,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
+@EnableScheduling
 public class SecurityConfig {
 
     /*
@@ -58,7 +60,7 @@ public class SecurityConfig {
                     .loginPage("/login").failureUrl("/login/error")
                 .and()
                     .authorizeRequests()
-                        .antMatchers("/", "/login/**", "/register/**", "/h2-console/**").permitAll() //Frei zugänglich
+                        .antMatchers("/", "/login/**", "/register/**", "/activate/**", "/forgot/**", "/h2-console/**").permitAll() //Frei zugänglich
                         //.antMatchers("/admin/**").hasRole("ADMIN") //Freigabe nu mit bestimmten Rolle
                         .anyRequest().authenticated() // Alle anderen erfordern anmeldung
                 .and()

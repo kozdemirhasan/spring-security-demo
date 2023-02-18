@@ -1,11 +1,13 @@
 package de.kozdemir.springsecuritydemo.model;
 
 import de.kozdemir.springsecuritydemo.annotation.Password;
+import de.kozdemir.springsecuritydemo.annotation.PasswordMatch;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 public class UserDto {
 
@@ -25,6 +27,7 @@ public class UserDto {
 
 
     public User convert(PasswordEncoder passwordEncoder) {
+
         User user = new User();
         user.setUsername(username.toLowerCase());
         user.setEmail(email.toLowerCase());

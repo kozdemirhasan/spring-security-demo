@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="de">
+  <head th:replace="fragments.html :: head(title = 'Login')" ></head>
+<body>
+
+  <header class="container"></header>
+
+  <nav th:replace="fragments.html :: mainNav"></nav>
+
+  <main class="container py-5">
+    <div class="row">
+      <div class="col-sm-6">
+
+        <h1>Konto Aktivieren</h1>
+
+        <div th:if="${success}" class="alert alert-success">Dein Konto ist aktiviert.</div>
+
+        <div th:if="${error}" class="alert alert-danger">Konto konnte nicht aktiviert werden.</div>
+
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="container"></footer>
+
+  <script src="/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

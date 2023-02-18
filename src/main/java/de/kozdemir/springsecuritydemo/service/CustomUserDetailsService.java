@@ -28,7 +28,7 @@ public class CustomUserDetailsService implements UserDetailsService {
                     .withUsername(u.getUsername())
                     .password(u.getPassword())
                     .roles(u.getRole().toString())
-                    .disabled(u.getStatus().equals(UserStatus.BLOCKED))
+                    .disabled(!u.getStatus().equals(UserStatus.ACTIVE)) //Wenn user nicht ACTIVE ist...
                     .build();
         }
         throw new RuntimeException("User nicht gefunden");
