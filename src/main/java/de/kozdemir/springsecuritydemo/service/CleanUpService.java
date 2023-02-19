@@ -21,6 +21,7 @@ public class CleanUpService {
     @Scheduled(cron = "0 */2 * * * ?") // alle 2 Minuten
     public void deleteExpiredTokens() {
         tokenRepository.deleteByCreatedAtBefore(LocalDateTime.now().minusDays(7));
+//        tokenRepository.deleteByCreatedAtBefore(LocalDateTime.now().minusMinutes(2));
         System.out.println("Clean UP");
     }
 
