@@ -60,7 +60,7 @@ public class SecurityConfig {
                     .loginPage("/login").failureUrl("/login/error")
                 .and()
                     .authorizeRequests()
-                        .antMatchers("/", "/login/**", "/register/**", "/activate/**", "/forgot/**", "/h2-console/**").permitAll() //Frei zugänglich
+                        .antMatchers("/login/**", "/register/**", "/activate/**", "/forgot/**", "/h2-console/**").permitAll() //Frei zugänglich
                         //.antMatchers("/admin/**").hasRole("ADMIN") //Freigabe nu mit bestimmten Rolle
                         .anyRequest().authenticated() // Alle anderen erfordern anmeldung
                 .and()

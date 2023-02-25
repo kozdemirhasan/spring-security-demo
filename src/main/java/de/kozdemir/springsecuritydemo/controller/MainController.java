@@ -43,6 +43,7 @@ public class MainController {
         return "home";
     }
 
+
     @GetMapping({"login", "login/{sub}"})
     public String login(@PathVariable Optional<String> sub, Model model) {
         sub.ifPresent(s -> {
